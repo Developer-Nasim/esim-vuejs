@@ -51,9 +51,9 @@ howDidYouHearAboutUs: "" -->
             <span class="connect-with-span">{{Lang.getTranslate("connect with")}}</span>
         </div>
         <div class="connect-ways">
-            <img src="@\assets\Pay\facebook-icon.png">
-            <img src="@\assets\Pay\google-icon.png">
-            <img src="@\assets\Pay\apple-icon.png">
+            <button type="button"><img src="@\assets\Pay\apple.png"></button>
+            <button type="button"><img src="@\assets\Pay\google.png"></button>
+            <button type="button"><img src="@\assets\Pay\facebook.png"></button> 
         </div>
         <div class="or">
             <span>{{Lang.getTranslate("or")}}</span>
@@ -62,8 +62,12 @@ howDidYouHearAboutUs: "" -->
             <div>
             <input type="text" placeholder="Email" class="big-input input Rectangle389" v-model="user.email">
         </div>
-        <div class="with-check">
-            <input type="checkbox"><span>{{Lang.getTranslate("Send me news and offers")}}</span>
+        <div class="with-check"> 
+            <label class="checkbox" for="ckb0">
+                <input type="checkbox" id="ckb0">
+                <span class="checkmark"></span> 
+            </label> 
+            <span>{{Lang.getTranslate("Send me news and offers")}}</span>
         </div>
         </div>
         <div class="control personal-details">
@@ -90,11 +94,17 @@ howDidYouHearAboutUs: "" -->
         </div>
         <div class="remember">
             <div class="control with-check">
-                <input type="checkbox" v-model="user.remenberMe">
+                    <label class="checkbox" for="ckb">
+                        <input type="checkbox" id="ckb" v-model="user.remenberMe">
+                        <span class="checkmark"></span> 
+                    </label> 
                 <span>{{Lang.getTranslate("remember me")}}</span>
             </div>
             <div class="control with-check">
-                <input type="checkbox" v-model="user.aprovalForRegultion">
+                    <label class="checkbox" for="ckb2">
+                        <input type="checkbox" id="ckb2" v-model="user.aprovalForRegultion">
+                        <span class="checkmark"></span> 
+                    </label> 
                 <span>{{Lang.getTranslate("Approval of regulations")}}</span>
             </div>
         </div>
@@ -116,6 +126,77 @@ howDidYouHearAboutUs: "" -->
 </template>
 
 <style>
+
+.checkbox {
+    position: relative;
+    display: flex;
+    align-items: center; 
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; 
+}
+
+.checkbox input {
+    position: absolute;
+    width: 0;
+    left: 50px;
+    height: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox .checkmark {
+    position: relative;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 3px;
+    outline: 1px solid #acacac;
+    transition: all 0.2s ease;
+}
+
+.checkbox:hover .checkmark {
+    background: #f4f4f5;
+    transition: all 0.2s ease;
+}
+
+.checkbox input:checked ~.checkmark {
+    background: #2D2D2D;
+    outline: 1px solid #2D2D2D;
+}
+
+.checkbox input[type="radio"] ~ .checkmark {
+    border-radius: 50%;
+}
+
+.checkbox .checkmark::after {
+    position: absolute;
+    display: block;
+    content: "";
+    left: 50%;
+    top: 41%;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
+    -moz-transform: translate(-50%, -50%) rotate(45deg);
+    -ms-transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.checkbox input:checked~.checkmark::after {
+    opacity: 1;
+    transition: all 0.2s ease;
+}
+
 .all-form-content{
     padding-left: 29px;
     width: 575px;
@@ -157,6 +238,9 @@ howDidYouHearAboutUs: "" -->
 .remember{
     padding-bottom: 16px;
 }
+.remember .control.with-check {
+    margin-bottom: 8px;
+}
 .buy-now-div{
     padding-bottom: 30px;
 }
@@ -173,11 +257,22 @@ howDidYouHearAboutUs: "" -->
     line-height: normal;
     text-transform: capitalize;
     border: none;
+    cursor: pointer;
 }
 .connect-ways{
-    gap: 32px;
+    gap: 15px;
     display: flex;
     justify-content: center;
+}
+.connect-ways button {
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
 }
 .connect-with-div{
     padding-top: 51px;
@@ -186,7 +281,10 @@ howDidYouHearAboutUs: "" -->
 .connect-with-span{
     font-size: 16px;
 }
-
+.all-form-content input {
+    height: auto;
+    padding: 10px;
+}
 .locate-form{
     position: relative;
     z-index: 300;

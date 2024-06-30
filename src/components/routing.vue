@@ -133,7 +133,7 @@ onUnmounted(() => {
 
       <div class="navbar-end-our">
         <a class="navbar-item">my eSIMs</a> |
-        <a class="navbar-item" @click="toggleUserOptions">{{ user.firstName }} aa &nbsp;
+        <a class="navbar-item" @click="toggleUserOptions">{{ user.firstName }}   &nbsp;
           <svg
             width="12"
             height="8"

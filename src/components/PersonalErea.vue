@@ -2,7 +2,7 @@
 import 'bulma/css/bulma.css'
 </script>
 <template>
-<div class="countries" style="width: 100%;display: flex;" ><div class="div1"><figure style="width:85%" >
+<div class="countries welogscren" style="width: 100%;display: flex;" ><div class="div1"><figure style="width:85%" >
   <img src="@/assets/pe.png"/></figure></div>
   <div class="div2" style="text-align:center;width:35%;font-family: Modern Era;">
   <br><br>
@@ -28,3 +28,21 @@ import 'bulma/css/bulma.css'
 </div>
 </div>
 </template>
+<style>
+  .countries.welogscren {
+    justify-content: center;
+    height: 90vh;
+    align-items: center;
+    padding: 50px;
+    min-height: 700px;
+}
+.countries.welogscren form.box {
+    width: 100% !important;
+}
+.countries.welogscren > div{
+  width: 40%;
+}
+  .countries.welogscren  figure{
+      width: 100%;
+}
+</style>

@@ -130,16 +130,17 @@ export default {
   </div>
 </template>
 <template v-else>
-<div style="margin-bottom: -30px;">
-  <span>Secure Checkout</span>
-</div>
+  <div style="margin-bottom: -30px;">
+    <span>Secure Checkout</span>
+  </div>
 </template>
+
 <div class="paDe">
   
     <div class="pack-det">
       <div class="package-type-background">
         <img style="    width: 540px;" src="@\assets\PersonalAreaPackage\package-esim.png" />
- </div>
+      </div>
  
       <div class="od-pack">
         <div class="pack-title-div-od">
@@ -268,16 +269,24 @@ export default {
 
 <template v-if="needConfirm">
 
-<div class="confirms">
-<div class="confirm">
-  <input type="checkbox" v-model="approval">
-  <span class="confirm-text">{{Lang.getTranslate("Completing the order constitutes your approval of our ")}}<a class="move">{{Lang.getTranslate("terms and conditions")}}</a> {{Lang.getTranslate("and")}} <a class="move">{{Lang.getTranslate("privacy policy")}}</a>.</span>
-</div>
-<div class="confirm">
-  <input type="checkbox" v-model="sure">
-  <span class="confirm-text">{{Lang.getTranslate("It is important to make sure that the device is compatible with eSIM cards and does not include a network lock.")}} <a class="move">{{Lang.getTranslate("Learn more")}}</a></span>
-</div>
-</div>
+  <div class="confirms">
+    <div class="confirm">
+        <label class="checkbox" for="ckb">
+          <input type="checkbox" id="ckb"  v-model="approval">
+          <span class="checkmark"></span> 
+      </label>
+    <!-- <input type="checkbox" v-model="approval"> -->
+    <span class="confirm-text">{{Lang.getTranslate("Completing the order constitutes your approval of our ")}}<a class="move">{{Lang.getTranslate("terms and conditions")}}</a> {{Lang.getTranslate("and")}} <a class="move">{{Lang.getTranslate("privacy policy")}}</a>.</span>
+  </div>
+  <div class="confirm">
+        <label class="checkbox" for="ckb2">
+          <input type="checkbox" id="ckb2"  v-model="sure">
+          <span class="checkmark"></span> 
+      </label>
+    <!-- <input type="checkbox" v-model="sure"> -->
+    <span class="confirm-text">{{Lang.getTranslate("It is important to make sure that the device is compatible with eSIM cards and does not include a network lock.")}} <a class="move">{{Lang.getTranslate("Learn more")}}</a></span>
+  </div>
+  </div>
 
     <div class="btns-co">
     <div class="con-btns">
@@ -310,6 +319,100 @@ export default {
 
 </template>
 <style>
+
+
+.checkbox {
+    position: relative;
+    display: flex;
+    align-items: center; 
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; 
+}
+
+.checkbox input {
+    position: absolute;
+    width: 0;
+    left: 50px;
+    height: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox .checkmark {
+    position: relative;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 3px;
+    outline: 1px solid #acacac;
+    transition: all 0.2s ease;
+}
+
+.checkbox:hover .checkmark {
+    background: #f4f4f5;
+    transition: all 0.2s ease;
+}
+
+.checkbox input:checked ~.checkmark {
+    background: #2D2D2D;
+    outline: 1px solid #2D2D2D;
+}
+
+.checkbox input[type="radio"] ~ .checkmark {
+    border-radius: 50%;
+}
+
+.checkbox .checkmark::after {
+    position: absolute;
+    display: block;
+    content: "";
+    left: 50%;
+    top: 41%;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
+    -moz-transform: translate(-50%, -50%) rotate(45deg);
+    -ms-transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.checkbox input:checked~.checkmark::after {
+    opacity: 1;
+    transition: all 0.2s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.days-wrap{
+  position: relative;
+  z-index: 2;
+}
 .paDe{
   margin-top: 55px;
 }
@@ -420,16 +523,17 @@ export default {
 .btns-co{
   display: grid;
     justify-items: center;
+    margin-bottom: 100px;
 
 }
 .con-btns{
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding-top: 27px;
+    padding-top: 50px;
 }
 .choose-btn-buy{
-    width: calc(100vw * 0.08 + 374px);
+    width: 49%;
     border: none;
     height: 45px;
     flex-shrink: 0;
@@ -444,7 +548,7 @@ export default {
     text-transform: capitalize;
 }
 .unchoose-btn{
-    width: calc(100vw * 0.08 + 374px);
+    width: 49%;
     height: 45px;
     flex-shrink: 0;
     border-radius: 12px;
@@ -466,12 +570,16 @@ export default {
 .all-cont{
  
 }
-.package-date-od{
+.package-date-od {
     padding-bottom: 16px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 .pack-title-div-od{
-    padding-top: 15px;
-    padding-bottom: 10px;
+    padding-top: 25px;
+    padding-bottom: 12px;
 }
 .pack-title-od{
     text-align: right;
@@ -490,18 +598,18 @@ export default {
     width: fit-content;
 }
 .od-pack {
-  min-height: 362px;
-  width: calc(100vw* 0.16 + 760px);
-  border-radius: 12px;
-  border: 0.2px solid var(--3, #f1eded);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  text-transform: capitalize;
-  padding-left: 76px;
-  border-radius: 12px;
-  border: 0.2px solid var(--3, #8a8a8a);
-  background: linear-gradient(100.28deg, rgba(238, 193, 103, 0.15) 28.89%, rgba(174, 84, 123, 0.15) 113.11%);
+    min-height: 330px;
+    width: calc(100vw* 0.16 + 800px);
+    border-radius: 12px;
+    border: 0.2px solid var(--3, #f1eded);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding-left: 76px;
+    border-radius: 12px;
+    border: 0.2px solid #8a8a8a21;
+    background: linear-gradient(100.28deg, rgba(238, 193, 103, 0.15) 28.89%, rgba(174, 84, 123, 0.15) 113.11%);
 }
 .order-details {
 }

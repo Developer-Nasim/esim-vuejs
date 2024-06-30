@@ -34,9 +34,7 @@ export default {
     
   >
   <div>
-  <span class="days-title">
-    {{Lang.getTranslate("Days")}}
-        </span>
+  <!-- <span class="days-title"> {{Lang.getTranslate("Days")}} </span> -->
       <div class="packages">
         
         <!-- v-bind:class="{ 'one':  }" -->
@@ -88,7 +86,7 @@ font-size: 16px;
   display: flex;
     justify-content: space-between;
     gap: 18px;
-    margin-top: 32px;
+    /* margin-top: 32px; */
 }
 .card-content{
   /* width: calc(100vw * 0.12 + 867px); */

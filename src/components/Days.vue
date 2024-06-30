@@ -73,169 +73,177 @@ export default defineComponent({
 
 
 
-
+<div class="days-wrap"> 
   <div class="all-content">
     <div>
-    <nav class="breadcrumb has-dot-separator nav" aria-label="breadcrumbs">
-    <ul style="color:#C1C1C1">
-      <li @click="goToStage(1)"
-        aria-current="page">
-        <span v-bind:class="store.currentStep > 1 || store.back == true ? 'black-text' : store.currentStep == 1 ? 'black' : 'gray'" style="display: flex;">{{Lang.getTranslate("Days")}}</span> 
-        <img src="@\assets\v-black.png" v-if="store.currentStep > 1 || store.back == true" style="margin-top: -30px; margin-left: -20px;"/>
-      </li>
-      <li @click="goToStage(2)">
-        &nbsp; ------------ <span v-bind:class="store.currentStep > 2  || store.back == true ? 'black-text' : store.currentStep == 2 ? 'black' :'gray'">{{Lang.getTranslate("Period")}}</span>
-         <img src="@\assets\v-black.png" v-if="store.getcurrentStep > 2 || store.back == true"
-          style="margin-top: -30px;margin-left: -20px;"/></li>
-      <li @click="goToStage(3)">&nbsp; ------------ <span v-bind:class="store.currentStep > 3 || store.back == true  ? 'black-text' : store.currentStep == 3 ? 'black' : 'gray'">{{Lang.getTranslate("Extra")}}</span> <img
-          src="@\assets\v-black.png" v-if="store.getcurrentStep > 3 || store.back == true" style="margin-top: -30px; margin-left: -20px;"/></li>
-      <br>
-      <!-- <li>&nbsp; ------------ <span v-bind:class="store.currentStep > 5 ? 'blue-text' : store.currentStep == 5 ? 'black' : 'gray'">Ordering Details</span> <img
-          src="@\assets\v-pink.png" v-if="store.currentStep > 5" style="margin-top: -30px;" /> </li> -->
-          <li>&nbsp; ------------ <span v-bind:class="store.currentStep > 4 ? 'black-text' : store.currentStep == 4 ? 'black' : 'gray'">{{Lang.getTranslate("Ordering Details Check")}}</span>
-        <img src="@\assets\v-black.png" v-if="store.currentStep > 4 || store.back == true" style="margin-top: -30px; margin-left: -20px;" />
-      </li>
-          <!-- <li>&nbsp; ------------ <span v-bind:class="store.currentStep > 6 ? 'blue-text' : store.currentStep == 6 ? 'black' : 'gray'">Device Compatibility
-        Check</span>
-        <img src="@\assets\v-pink.png" v-if="store.currentStep > 6 || store.back == true" style="margin-top: -30px; margin-left: -20px;" />
-      </li> -->
-      <li>&nbsp; -----------<span v-bind:class="store.currentStep > 7 ? 'black-text': store.currentStep == 7 ? 'black' : 'C1C1C1'">{{Lang.getTranslate("Pay")}} </span><img
-          src="@\assets\v-black.png" v-if="store.currentStep > 7 || store.back == true" style="margin-top: -30px; margin-left: -20px;" /></li>
-    </ul>
-  </nav>
-  <div class="show-choose-package">
-    <div class="first-column">
-<Part1 divName="1"></Part1>
-<Part2 divName="2"></Part2>
-<Part3 divName="3"></Part3>
-<!-- <CreateAccount divName="2" /> -->
-<!-- <Part5 divName="6"></Part5> -->
-<button v-if="store.currentStep < 4" class="button continue" name="d33" id="cd"
-@click="rend++, store.currentSteps()"> {{Lang.getTranslate("Continue")}}
-</button>
-</div>
-<Part4 divName="4"></Part4>
-<!-- {{ store.orders[store.currentOrderIndex] }} -->
-<div v-if="store.currentStep < 4">
-  <div class="pack">
-     <div class="pack-title-div"><span class="pack-title">
-  <img src="@\assets\Israel-flag.png" class="logo-img">
-      {{PackagesEnum[Data.getDaysByCode?.PackageType || 0] }} israel</span></div>
-       <div class="all-without-total">
-          <div class="base-package">
-          <div class="each-row with-change-option">
-            <div>
-              <label>{{ Data.getDaysByCode?.Days }} {{Lang.getTranslate("Days")}}</label>
-              <!-- <label style="font-weight: 500;text-indent: 285px;"> Change </label> -->
+      <nav class="breadcrumb has-dot-separator nav" aria-label="breadcrumbs">
+        <ul style="color:#C1C1C1">
+          <li @click="goToStage(1)"
+            aria-current="page">
+            <span v-bind:class="store.currentStep > 1 || store.back == true ? 'black-text' : store.currentStep == 1 ? 'black' : 'gray'" style="display: flex;">{{Lang.getTranslate("Days")}}</span> 
+            <img src="@\assets\v-black.png" v-if="store.currentStep > 1 || store.back == true" style="margin-top: -30px; margin-left: -20px;"/>
+          </li>
+          <li @click="goToStage(2)">
+            <span v-bind:class="store.currentStep > 2  || store.back == true ? 'black-text' : store.currentStep == 2 ? 'black' :'gray'">{{Lang.getTranslate("Period")}}</span>
+            <img src="@\assets\v-black.png" v-if="store.getcurrentStep > 2 || store.back == true"
+              style="margin-top: -30px;margin-left: -20px;"/></li>
+          <li @click="goToStage(3)"><span v-bind:class="store.currentStep > 3 || store.back == true  ? 'black-text' : store.currentStep == 3 ? 'black' : 'gray'">{{Lang.getTranslate("Extra")}}</span> <img
+              src="@\assets\v-black.png" v-if="store.getcurrentStep > 3 || store.back == true" style="margin-top: -30px; margin-left: -20px;"/></li>
+          <br>
+          <!-- <li><span v-bind:class="store.currentStep > 5 ? 'blue-text' : store.currentStep == 5 ? 'black' : 'gray'">Ordering Details</span> <img
+              src="@\assets\v-pink.png" v-if="store.currentStep > 5" style="margin-top: -30px;" /> </li> -->
+              <li><span v-bind:class="store.currentStep > 4 ? 'black-text' : store.currentStep == 4 ? 'black' : 'gray'">{{Lang.getTranslate("Ordering Details Check")}}</span>
+            <img src="@\assets\v-black.png" v-if="store.currentStep > 4 || store.back == true" style="margin-top: -30px; margin-left: -20px;" />
+          </li>
+              <!-- <li><span v-bind:class="store.currentStep > 6 ? 'blue-text' : store.currentStep == 6 ? 'black' : 'gray'">Device Compatibility
+            Check</span>
+            <img src="@\assets\v-pink.png" v-if="store.currentStep > 6 || store.back == true" style="margin-top: -30px; margin-left: -20px;" />
+          </li> -->
+          <li><span v-bind:class="store.currentStep > 7 ? 'black-text': store.currentStep == 7 ? 'black' : 'C1C1C1'">{{Lang.getTranslate("Pay")}} </span><img
+              src="@\assets\v-black.png" v-if="store.currentStep > 7 || store.back == true" style="margin-top: -30px; margin-left: -20px;" /></li>
+        </ul>
+      </nav>
+      <div class="show-choose-package">
+        <div class="first-column">
+          <Part1 divName="1"></Part1>
+          <Part2 divName="2"></Part2>
+          <Part3 divName="3"></Part3>
+          <!-- <CreateAccount divName="2" /> -->
+          <!-- <Part5 divName="6"></Part5> -->
+          <button v-if="store.currentStep < 4" class="button continue" name="d33" id="cd"
+          @click="rend++, store.currentSteps()"> {{Lang.getTranslate("Continue")}}
+          </button>
+        </div>
+        <Part4 divName="4"></Part4>
+        <!-- {{ store.orders[store.currentOrderIndex] }} -->
+        <div v-if="store.currentStep < 4"> 
+          <div class="pack">
+              <div class="pack-title-div"><span class="pack-title">
+                <img src="@\assets\Israel-flag.png" class="logo-img">
+                {{PackagesEnum[Data.getDaysByCode?.PackageType || 0] }} israel</span>
+              </div>
+
+              <div class="all-without-total">
+                  <div class="base-package">
+                  <div class="each-row with-change-option">
+                    <div>
+                      <label>{{ Data.getDaysByCode?.Days }} {{Lang.getTranslate("Days")}}</label>
+                      <!-- <label style="font-weight: 500;text-indent: 285px;"> Change </label> -->
+                  </div>
+                  <div class="blue-text" @click="goToStage(1)">
+                    {{Lang.getTranslate("change")}}
+                  </div>
+                </div>
+                  <div class="each-row"> {{ Data.getDaysByCode?.Settings.find(x => x.Type == ExtraType.Surfing)?.Quantity }} {{Lang.getTranslate("Gigabytes")}}</div>
+                  <div class="each-row"> {{ Data.getDaysByCode?.Settings.find(x => x.Type == ExtraType.MinutesToIsrael)?.Quantity }} {{Lang.getTranslate("Minutes")}}</div>
+                </div>
+                <div class="end-section"></div>
+                <div class="package-date">
+                  <div class="with-change-option">
+                    <div>
+                  <dt class="each-row"> {{ store.orders[store.currentOrderIndex].StartDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) }}</dt>
+                </div>
+                <div class="blue-text" @click="goToStage(2)">
+                  {{Lang.getTranslate("change")}}
+                </div>
+                </div>
+                  <div class="each-row">{{Lang.getTranslate("At")}} {{ new Date(store.orders[store.currentOrderIndex].StartDate).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) }} {{Lang.getTranslate("o'clock")}}</div>
+                </div>
+                <div class="end-section"></div>
+                <div >
+                  <!-- class="extras" -->
+                  <div v-if="store.orders[store.currentOrderIndex].AddCodeSurfing!=''" >
+                    <div class="with-change-option">
+                    <div class="each-row">{{Lang.getTranslate("Extra Surfing")}} </div>
+                    <div class="blue-text" @click="goToStage(3)">
+                      {{Lang.getTranslate("change")}}
+                </div>
+              </div>
+                    <div class="each-row"> {{ store.orders[store.currentOrderIndex].AddCodeSurfing }} $</div> 
+                    <div class="end-section"></div>
+                  </div>   
+                  <div v-if="store.orders[store.currentOrderIndex].EMinutesToisrael!=''">
+                    <div class="with-change-option">
+                    <div class="each-row">{{Lang.getTranslate("Extra Minutes To Israel")}} </div> 
+                    <div class="blue-text" @click="goToStage(3)">
+                      {{Lang.getTranslate("change")}}
+                </div>
+                  </div>
+                    <div class="each-row">{{ store.orders[store.currentOrderIndex].EMinutesToisrael }} $ </div>
+                    <div class="end-section"></div>
+                  </div>   
+                  <div v-if="store.orders[store.currentOrderIndex].EMinutesTo23Countries!=''">
+                    <div class="with-change-option">
+                    <div class="each-row">{{Lang.getTranslate("Extra Minutes To 23 Countries")}}</div>
+                    <div class="blue-text" @click="goToStage(3)">
+                      {{Lang.getTranslate("change")}}
+                </div>
+                  </div>
+                    <div class="each-row"> {{ store.orders[store.currentOrderIndex].EMinutesTo23Countries }} $</div>
+                    <div class="end-section"></div>
+                  </div>   
+                  <div v-if="store.orders[store.currentOrderIndex].TransferringCalls!=''">
+                    <div class="with-change-option">
+                    <div class="each-row">{{Lang.getTranslate("Extra Transferring Calls")}} </div>
+                    <div class="blue-text" @click="goToStage(3)">
+                      {{Lang.getTranslate("change")}}
+                </div>
+                  </div>
+                    <div class="each-row"> {{ store.orders[store.currentOrderIndex].TransferringCalls }} $</div>
+                    <div class="end-section"></div>
+                  </div>   
+                  <div v-if="store.orders[store.currentOrderIndex].FixedNumberForLife!=''">
+                    <div class="with-change-option">
+                    <div class="each-row">{{Lang.getTranslate("Extra Fixed Number For Life")}} </div>
+                    <div class="blue-text" @click="goToStage(3)">
+                      {{Lang.getTranslate("change")}}
+                </div>
+                  </div>
+                    <div class="each-row"> {{ store.orders[store.currentOrderIndex].FixedNumberForLife}} $</div>
+                    <div class="end-section"></div>
+                  </div>   
+                </div>
+              </div>
+
+              <div class="end">
+                  <div class="total">
+                    <span>{{Lang.getTranslate("Total")}}</span>
+                    <span>{{ Data.getDaysByCode?.Price }}
+                    <span v-if="Lang.currentCurrency == CurrencyEnum.EUR">€</span>
+                    <span v-if="Lang.currentCurrency == CurrencyEnum.USD">$</span>
+                  </span>
+                  </div>
+                </div>
           </div>
-          <div class="blue-text" @click="goToStage(1)">
-            {{Lang.getTranslate("change")}}
+            
+            
+          <div class="upgrade">
+            <span>{{Lang.getTranslate("Upgrade")}} {{Lang.getTranslate("To")}} {{Lang.getTranslate("Medium")}}</span>
+            <div class="upgrade-arrow">
+              <span>{{Lang.getTranslate("For")}} $28</span>&nbsp;
+              <span >
+              <!-- <svg width="8" height="17" viewBox="0 0 8 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 8.90171C8 9.55574 7.74876 10.2098 7.2556 10.705L1.18872 16.7968C0.918871 17.0677 0.47223 17.0677 0.202384 16.7968C-0.0674615 16.5258 -0.0674615 16.0774 0.202384 15.8064L6.26926 9.71457C6.71591 9.2661 6.71591 8.53732 6.26926 8.08884L0.202384 1.99702C-0.0674621 1.72607 -0.0674621 1.27759 0.202384 1.00663C0.47223 0.735678 0.918871 0.735678 1.18872 1.00663L7.2556 7.09845C7.74876 7.59365 8 8.24768 8 8.90171Z" fill="#535353"/>
+              </svg> -->
+              </span>
+            </div>
           </div>
+
         </div>
-          <div class="each-row"> {{ Data.getDaysByCode?.Settings.find(x => x.Type == ExtraType.Surfing)?.Quantity }} {{Lang.getTranslate("Gigabytes")}}</div>
-          <div class="each-row"> {{ Data.getDaysByCode?.Settings.find(x => x.Type == ExtraType.MinutesToIsrael)?.Quantity }} {{Lang.getTranslate("Minutes")}}</div>
-        </div>
-        <div class="end-section"></div>
-        <div class="package-date">
-          <div class="with-change-option">
-            <div>
-          <dt class="each-row"> {{ store.orders[store.currentOrderIndex].StartDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) }}</dt>
-        </div>
-        <div class="blue-text" @click="goToStage(2)">
-          {{Lang.getTranslate("change")}}
-        </div>
-        </div>
-          <div class="each-row">{{Lang.getTranslate("At")}} {{ new Date(store.orders[store.currentOrderIndex].StartDate).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) }} {{Lang.getTranslate("o'clock")}}</div>
-        </div>
-        <div class="end-section"></div>
-        <div >
-          <!-- class="extras" -->
-          <div v-if="store.orders[store.currentOrderIndex].AddCodeSurfing!=''" >
-            <div class="with-change-option">
-            <div class="each-row">{{Lang.getTranslate("Extra Surfing")}} </div>
-            <div class="blue-text" @click="goToStage(3)">
-              {{Lang.getTranslate("change")}}
-        </div>
-      </div>
-            <div class="each-row"> {{ store.orders[store.currentOrderIndex].AddCodeSurfing }} $</div> 
-            <div class="end-section"></div>
-          </div>   
-          <div v-if="store.orders[store.currentOrderIndex].EMinutesToisrael!=''">
-            <div class="with-change-option">
-            <div class="each-row">{{Lang.getTranslate("Extra Minutes To Israel")}} </div> 
-            <div class="blue-text" @click="goToStage(3)">
-              {{Lang.getTranslate("change")}}
-        </div>
-          </div>
-            <div class="each-row">{{ store.orders[store.currentOrderIndex].EMinutesToisrael }} $ </div>
-            <div class="end-section"></div>
-          </div>   
-          <div v-if="store.orders[store.currentOrderIndex].EMinutesTo23Countries!=''">
-            <div class="with-change-option">
-            <div class="each-row">{{Lang.getTranslate("Extra Minutes To 23 Countries")}}</div>
-            <div class="blue-text" @click="goToStage(3)">
-              {{Lang.getTranslate("change")}}
-        </div>
-          </div>
-            <div class="each-row"> {{ store.orders[store.currentOrderIndex].EMinutesTo23Countries }} $</div>
-            <div class="end-section"></div>
-          </div>   
-          <div v-if="store.orders[store.currentOrderIndex].TransferringCalls!=''">
-            <div class="with-change-option">
-            <div class="each-row">{{Lang.getTranslate("Extra Transferring Calls")}} </div>
-            <div class="blue-text" @click="goToStage(3)">
-              {{Lang.getTranslate("change")}}
-        </div>
-          </div>
-            <div class="each-row"> {{ store.orders[store.currentOrderIndex].TransferringCalls }} $</div>
-            <div class="end-section"></div>
-          </div>   
-          <div v-if="store.orders[store.currentOrderIndex].FixedNumberForLife!=''">
-            <div class="with-change-option">
-            <div class="each-row">{{Lang.getTranslate("Extra Fixed Number For Life")}} </div>
-            <div class="blue-text" @click="goToStage(3)">
-              {{Lang.getTranslate("change")}}
-        </div>
-          </div>
-            <div class="each-row"> {{ store.orders[store.currentOrderIndex].FixedNumberForLife}} $</div>
-            <div class="end-section"></div>
-          </div>   
-        </div>
-      </div>
-      <div class="end">
-          <div class="total">
-            <span>{{Lang.getTranslate("Total")}}</span>
-            <span>{{ Data.getDaysByCode?.Price }}
-            <span v-if="Lang.currentCurrency == CurrencyEnum.EUR">€</span>
-            <span v-if="Lang.currentCurrency == CurrencyEnum.USD">$</span>
-          </span>
-          </div>
-        </div>
-      </div>
-    
-    
-    <div class="upgrade">
-<span>{{Lang.getTranslate("Upgrade")}} {{Lang.getTranslate("To")}} {{Lang.getTranslate("Medium")}}</span>
-<div class="upgrade-arrow">
-<span>{{Lang.getTranslate("For")}} $28</span>&nbsp;
-<span >
-<!-- <svg width="8" height="17" viewBox="0 0 8 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8 8.90171C8 9.55574 7.74876 10.2098 7.2556 10.705L1.18872 16.7968C0.918871 17.0677 0.47223 17.0677 0.202384 16.7968C-0.0674615 16.5258 -0.0674615 16.0774 0.202384 15.8064L6.26926 9.71457C6.71591 9.2661 6.71591 8.53732 6.26926 8.08884L0.202384 1.99702C-0.0674621 1.72607 -0.0674621 1.27759 0.202384 1.00663C0.47223 0.735678 0.918871 0.735678 1.18872 1.00663L7.2556 7.09845C7.74876 7.59365 8 8.24768 8 8.90171Z" fill="#535353"/>
-</svg> -->
-</span>
-</div>
+
+      </div> 
     </div>
+  </div> 
+  <div v-if="store.currentStep == 4" class="withbgshap"> 
+    <img src="@\assets\part4\background.png" alt="">
   </div>
-
 </div>
 
-</div>
-</div>
 <div class="footer">
-<img src="@\assets\Home\contact-information.png" class="contact"> 
-<div class="pay">
-<img src="@\assets\Home\pay.png">
-</div>
+  <img src="@\assets\Home\contact-information.png" class="contact"> 
+  <div class="pay">
+  <img src="@\assets\Home\pay.png">
+  </div>
 </div>
 
 
@@ -249,6 +257,25 @@ export default defineComponent({
 .all-without-total{
   padding-bottom: 40px;
 }
+/* .breadcrumb li > img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+} */
+
+.withbgshap {
+    width: 100%;
+    position: absolute;
+    border-bottom: 250px solid #F4F4F4;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+}
+
+.withbgshap img {
+    display: block;
+}
 .end{
   bottom: 10px;
     position: absolute;
@@ -261,6 +288,13 @@ export default defineComponent({
  .each-row{
   padding-bottom: 10px;
  }
+.package-date-od .each-row {
+    padding-bottom: 0px;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    gap: 5px;
+}
 .end-section{
   width: 100%;
   height: 100%;
@@ -325,11 +359,12 @@ text-align: left;
 
 }
 .pack-title{
-  font-size: 23px;
-    /* font-weight: 600; */
-    line-height: 48px;
+    font-size: 23px;
     letter-spacing: 0em;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
 .pack-title-div{
@@ -431,6 +466,39 @@ color: white !important;
   position: fixed;
 }
 
+nav.breadcrumb.has-dot-separator.nav {
+    margin-top: 80px;
+    width: 100%;
+    max-width: 100%;
+    display: block;
+}
+.breadcrumb ul, .breadcrumb ol { 
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+.breadcrumb ul::after, .breadcrumb ol::after{
+  content: "";
+  width: 100%;
+  height: 1px;
+  border: 1px dashed #C9C9C9;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+  transform: translateY(-50%);
+}
+.breadcrumb li span{
+  background: #fff;
+  padding: 0 5px;
+}
+.breadcrumb li{
+  width: 20%;
+}
+.breadcrumb li:last-child {
+    text-align: right;
+    justify-content: flex-end;
+}
 .pack {
   border-radius: 12px;
   border: 0.2px solid var(--3, #f1eded);
@@ -443,8 +511,7 @@ color: white !important;
     font-weight: 500;
     line-height: 141.523%;
     text-transform: capitalize;
-    padding-left: 27px;
-    padding-right: 27px;
+    padding: 21px 27px; 
     position: relative;
 }
 
