@@ -3,6 +3,7 @@ import Home from '../components/Home.vue'
 import Days from '../components/Days.vue'
 import PersonalErea from '../components/PersonalErea.vue'
 import PersonalAreaPackage from '../components/PersonalAreaPackage.vue'
+import Profile from '../components/Profile.vue'
 
 const router = createRouter({
   history: createWebHistory('/'),
@@ -11,7 +12,12 @@ const router = createRouter({
       path: '/Days',
       name: 'days',
       component: Days
-    }, 
+    },
+    {
+      path: '/Profile',
+      name: 'Profile',
+      component: Profile
+    },
     {
       path: '/PersonalErea',
       name: 'PersonalErea',
