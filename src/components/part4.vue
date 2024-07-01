@@ -53,6 +53,8 @@ export default {
       document.getElementById(idUnChoose)?.classList.remove('choose-btn-buy');
       document.getElementById(idUnChoose)?.classList.add('unchoose-btn');
       
+      document.getElementById("days-wrap")?.classList.add('dnone');
+      
     },
     ios(){
       this.chDev = true;

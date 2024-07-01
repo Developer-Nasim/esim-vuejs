@@ -5,7 +5,8 @@ import { defineComponent } from 'vue';
 import { CurrencyEnum, PackagesEnum } from '@/models/orderLine';
 import 'bulma/css/bulma.css';
 import DxDateBox from 'devextreme-vue/date-box';
-import CreateAccount from './createAccount.vue';
+import CreateAccount from './createAccount.vue'; 
+
 import Part1 from './part1.vue';
 import Part2 from './part2.vue';
 import Part3 from './part3.vue';
@@ -73,34 +74,36 @@ export default defineComponent({
 
 
 
-<div class="days-wrap"> 
+<div class="days-wrap" id="days-wrap"> 
   <div class="all-content">
     <div>
       <nav class="breadcrumb has-dot-separator nav" aria-label="breadcrumbs">
         <ul style="color:#C1C1C1">
           <li @click="goToStage(1)"
             aria-current="page">
-            <span v-bind:class="store.currentStep > 1 || store.back == true ? 'black-text' : store.currentStep == 1 ? 'black' : 'gray'" style="display: flex;">{{Lang.getTranslate("Days")}}</span> 
-            <img src="@\assets\v-black.png" v-if="store.currentStep > 1 || store.back == true" style="margin-top: -30px; margin-left: -20px;"/>
+            <span v-bind:class="store.currentStep > 1 || store.back == true ? 'black-text' : store.currentStep == 1 ? 'black' : 'gray'" style="display: flex;">
+              <img src="@\assets\v-black.png" v-if="store.currentStep > 1 || store.back == true" />
+              {{Lang.getTranslate("Days")}}
+            </span> 
           </li>
           <li @click="goToStage(2)">
-            <span v-bind:class="store.currentStep > 2  || store.back == true ? 'black-text' : store.currentStep == 2 ? 'black' :'gray'">{{Lang.getTranslate("Period")}}</span>
-            <img src="@\assets\v-black.png" v-if="store.getcurrentStep > 2 || store.back == true"
-              style="margin-top: -30px;margin-left: -20px;"/></li>
-          <li @click="goToStage(3)"><span v-bind:class="store.currentStep > 3 || store.back == true  ? 'black-text' : store.currentStep == 3 ? 'black' : 'gray'">{{Lang.getTranslate("Extra")}}</span> <img
-              src="@\assets\v-black.png" v-if="store.getcurrentStep > 3 || store.back == true" style="margin-top: -30px; margin-left: -20px;"/></li>
-          <br>
+            <span v-bind:class="store.currentStep > 2  || store.back == true ? 'black-text' : store.currentStep == 2 ? 'black' :'gray'"><img src="@\assets\v-black.png" v-if="store.getcurrentStep > 2 || store.back == true"/> {{Lang.getTranslate("Period")}}</span>
+            
+          </li>
+          <li @click="goToStage(3)"><span v-bind:class="store.currentStep > 3 || store.back == true  ? 'black-text' : store.currentStep == 3 ? 'black' : 'gray'"><img src="@\assets\v-black.png" v-if="store.getcurrentStep > 3 || store.back == true" /> {{Lang.getTranslate("Extra")}}</span> 
+          
+          </li>
+         
           <!-- <li><span v-bind:class="store.currentStep > 5 ? 'blue-text' : store.currentStep == 5 ? 'black' : 'gray'">Ordering Details</span> <img
               src="@\assets\v-pink.png" v-if="store.currentStep > 5" style="margin-top: -30px;" /> </li> -->
-              <li><span v-bind:class="store.currentStep > 4 ? 'black-text' : store.currentStep == 4 ? 'black' : 'gray'">{{Lang.getTranslate("Ordering Details Check")}}</span>
-            <img src="@\assets\v-black.png" v-if="store.currentStep > 4 || store.back == true" style="margin-top: -30px; margin-left: -20px;" />
+              <li><span v-bind:class="store.currentStep > 4 ? 'black-text' : store.currentStep == 4 ? 'black' : 'gray'"><img src="@\assets\v-black.png" v-if="store.currentStep > 4 || store.back == true"  /> {{Lang.getTranslate("Ordering Details Check")}}</span>
+            
           </li>
               <!-- <li><span v-bind:class="store.currentStep > 6 ? 'blue-text' : store.currentStep == 6 ? 'black' : 'gray'">Device Compatibility
             Check</span>
-            <img src="@\assets\v-pink.png" v-if="store.currentStep > 6 || store.back == true" style="margin-top: -30px; margin-left: -20px;" />
+            <img src="@\assets\v-pink.png" v-if="store.currentStep > 6 || store.back == true"  />
           </li> -->
-          <li><span v-bind:class="store.currentStep > 7 ? 'black-text': store.currentStep == 7 ? 'black' : 'C1C1C1'">{{Lang.getTranslate("Pay")}} </span><img
-              src="@\assets\v-black.png" v-if="store.currentStep > 7 || store.back == true" style="margin-top: -30px; margin-left: -20px;" /></li>
+          <li><span v-bind:class="store.currentStep > 7 ? 'black-text': store.currentStep == 7 ? 'black' : 'C1C1C1'"> <img src="@\assets\v-black.png" v-if="store.currentStep > 7 || store.back == true"  /> {{Lang.getTranslate("Pay")}} </span></li>
         </ul>
       </nav>
       <div class="show-choose-package">
@@ -234,11 +237,11 @@ export default defineComponent({
       </div> 
     </div>
   </div> 
-  <div v-if="store.currentStep == 4" class="withbgshap"> 
+  <div v-if="store.currentStep == 4" class="withbgshap" id="withbgshap"> 
     <img src="@\assets\part4\background.png" alt="">
   </div>
 </div>
-
+ 
 <div class="footer">
   <img src="@\assets\Home\contact-information.png" class="contact"> 
   <div class="pay">
@@ -272,7 +275,9 @@ export default defineComponent({
     z-index: -1;
 
 }
-
+.dnone .withbgshap{
+  display:  none !important;
+}
 .withbgshap img {
     display: block;
 }
@@ -483,14 +488,19 @@ nav.breadcrumb.has-dot-separator.nav {
   height: 1px;
   border: 1px dashed #C9C9C9;
   position: absolute;
-  top: 50%;
+  top: 75%;
   left: 0;
   z-index: -1;
   transform: translateY(-50%);
 }
-.breadcrumb li span{
+.breadcrumb li > span{
   background: #fff;
   padding: 0 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
 }
 .breadcrumb li{
   width: 20%;

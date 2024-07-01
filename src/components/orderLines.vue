@@ -117,13 +117,55 @@ export default {
     <div class="page-center">
   <div class="all-content-page">
     <div class="orders-title">
-      <span @click="showCurrentOrders" :class="'orders' + (curr ? ' choose' : '')">current orders</span>
-      <span @click="showArchivedESIMs" :class="'orders' + (!curr  ? ' choose' : '')">archived eSIMs</span>
+      <span @click="showCurrentOrders" :class="'orders' + (curr ? ' choose' : '')">Current orders</span>
+      <span @click="showArchivedESIMs" :class="'orders' + (!curr  ? ' choose' : '')">Archived eSIMs</span>
     </div>
     <div class="current-orders-status">
-      <span @click="showActiveOrders" :class="'orders-af' + (active ? ' act' : '')">active</span>
+      <span @click="showActiveOrders" :class="'orders-af' + (active ? ' act' : '')">Active</span>
       <span @click="showFutureOrders" :class="'orders-af' + (!active ? ' act' : '')">Future</span>
     </div>
+
+
+  <!-- Static orders -->
+    <div class="order-items">
+      <!-- Single order -->
+      <div class="orderBlk">
+        <h1>Eco <button type="button">Qr Code</button></h1>
+        <ul>
+          <li>
+            <span><img src="@\assets\order\cpu.png" alt=""> iccid</span>
+            <span>45222455687987</span>
+          </li>
+          <li>
+            <span><img src="@\assets\order\call.png" alt=""> nunber phone</span>
+            <span>+97254485547</span>
+          </li>
+          <li>
+            <span><img src="@\assets\order\location.png" alt=""> destination</span>
+            <span>israel</span>
+          </li>
+          <li>
+            <span><img src="@\assets\order\note-text.png" alt=""> dates</span>
+            <span>08.08.2023-16.08.2023</span>
+          </li>
+          <li>
+            <span><img src="@\assets\order\transfar.png" alt="">surfing</span>
+            <span>rimaning 2 / 10 GB</span>
+          </li>
+          <li>
+            <span><img src="@\assets\order\call.png" alt="">Minutes</span>
+            <span>rimaning 80 / 120 min</span>
+          </li>
+        </ul>
+        <div class="orderBtns">
+          <button type="button">Top Up</button>
+          <button type="button">Details</button>
+        </div>
+      </div>  
+    </div>
+
+
+    
     <!-- {{item.OrderLineId}} -->
     <div class="all-lines" v-if="!showDetails">
      <template   v-if="filteredOrderLines && filteredOrderLines.length > 0">
@@ -296,9 +338,27 @@ export default {
 .orders-title {
   gap: 90px;
   display: flex;
-  font-size: 18px;
+  font-size: 18px; 
 }
-
+.orders-title span{
+  position: relative;
+  z-index: 2;
+  padding-bottom: 5px;
+  text-decoration: none  !important;
+}
+.orders-title span:after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background: #535353; 
+    transition: .2s;
+}
+.orders-title span.choose::after{
+  width: 75%;
+}
 .current-orders-status {
   gap: 20px;
   display: flex;
@@ -356,4 +416,95 @@ export default {
 .show-orders-btn {
   z-index: 1;
   position: absolute;
-}</style>
+}
+
+
+
+.order-items {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.orderBlk {
+    width: 30%;
+    background: #ECF3FD;
+    padding: 15px 22px;
+    border-radius: 8px;
+}
+
+.orderBlk h1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.orderBlk h1 button {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    color: #2072F9;
+}
+
+.orderBlk ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.orderBlk ul li span img {
+    margin-right: 5px;
+}
+.orderBlk ul li span:first-child{
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+.orderBtns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 15px;
+}
+a,button{
+  cursor: pointer;
+}
+.orderBtns button {
+    padding: 12px 40px;
+    border-radius: 10px;
+    border: 1px solid #2072F9;
+    background: linear-gradient(90deg, #2072F9, #0962F5);
+    color: #fff;
+    width: 50%;
+    font-size: 16px;
+}
+
+.orderBtns button:first-child {
+  background: #fff;
+  color: #0962F5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>

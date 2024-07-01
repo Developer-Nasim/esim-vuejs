@@ -189,61 +189,19 @@
     <div class="man-looking-div">
       <img src="@\assets\Home\man-is-looking.png" style="width: 324px;"/>
     </div>
-
-
-    
+ 
   </div>
-<div style="background-color: rgba(32, 114, 249, 1.5%);padding-top: 20px;">
-  <div class="faqs-div">
-    <div class="faqs-title">
-      {{ Lang.getTranslate('FAQs') }}
-    </div>
-    <div class="all-questions">
-      <div v-if="queAndAns.QueAndAns.length > 0" class="each-que" style="padding-bottom: 0px">
-        <span>{{ Lang.getTranslate(queAndAns.QueAndAns[0].Question) }}</span>
-        <span class="oxc-icon" @click="showAnswer(queAndAns.QueAndAns[0].QuestionsAndAnswersId)"
-          ><svg
-            width="18"
-            height="17"
-            viewBox="0 0 18 17"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M17.2603 9.536H10.4443V16.448H7.72425V9.536H0.94025V7.072H7.72425V0.127998H10.4443V7.072H17.2603V9.536Z"
-              fill="url(#paint0_linear_4653_3924)"
-            />
-            <defs>
-              <linearGradient
-                id="paint0_linear_4653_3924"
-                x1="5.50898"
-                y1="-15"
-                x2="27.2481"
-                y2="-13.1926"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stop-color="#EEC167" />
-                <stop offset="1" stop-color="#E56E44" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </span>
+
+
+  <div style="background-color: rgba(32, 114, 249, 1.5%);padding-top: 20px;">
+    <div class="faqs-div">
+      <div class="faqs-title">
+        {{ Lang.getTranslate('FAQs') }}
       </div>
-      <div v-for="(data, index) in queAndAns.QueAndAns.slice(0, showAllQuestions ? queAndAns.QueAndAns.length : 5)" :key="index">
-        <!-- <svg
-          v-if="index != 0"
-          width="1050"
-          height="1"
-          viewBox="0 0 1050 1"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line y1="0.8" x2="1050" y2="0.8" stroke="#535353" stroke-width="0.4" />
-        </svg> -->
-        <hr class="bffaq">
-        <div class="each-que">
-          <span v-if="index != 0">{{ data.Question }}</span>
-          <span class="oxc-icon" @click="showAnswer(data.QuestionsAndAnswersId)" v-if="index != 0"
+      <div class="all-questions">
+        <div v-if="queAndAns.QueAndAns.length > 0" class="each-que" style="padding-bottom: 0px">
+          <span>{{ Lang.getTranslate(queAndAns.QueAndAns[0].Question) }}</span>
+          <span class="oxc-icon" @click="showAnswer(queAndAns.QueAndAns[0].QuestionsAndAnswersId)"
             ><svg
               width="18"
               height="17"
@@ -271,21 +229,63 @@
             </svg>
           </span>
         </div>
+        <div v-for="(data, index) in queAndAns.QueAndAns.slice(0, showAllQuestions ? queAndAns.QueAndAns.length : 5)" :key="index">
+          <!-- <svg
+            v-if="index != 0"
+            width="1050"
+            height="1"
+            viewBox="0 0 1050 1"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line y1="0.8" x2="1050" y2="0.8" stroke="#535353" stroke-width="0.4" />
+          </svg> -->
+          <hr class="bffaq">
+          <div class="each-que">
+            <span v-if="index != 0">{{ data.Question }}</span>
+            <span class="oxc-icon" @click="showAnswer(data.QuestionsAndAnswersId)" v-if="index != 0"
+              ><svg
+                width="18"
+                height="17"
+                viewBox="0 0 18 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.2603 9.536H10.4443V16.448H7.72425V9.536H0.94025V7.072H7.72425V0.127998H10.4443V7.072H17.2603V9.536Z"
+                  fill="url(#paint0_linear_4653_3924)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_4653_3924"
+                    x1="5.50898"
+                    y1="-15"
+                    x2="27.2481"
+                    y2="-13.1926"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#EEC167" />
+                    <stop offset="1" stop-color="#E56E44" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+          </div>
 
-        <div  v-if="showAns && data.QuestionsAndAnswersId == answerId" class="faq-item-content">
-          {{ Lang.getTranslate(data.Answer) }}
+          <div  v-if="showAns && data.QuestionsAndAnswersId == answerId" class="faq-item-content">
+            {{ Lang.getTranslate(data.Answer) }}
+          </div>
+
+
         </div>
-
-
       </div>
+      <span style="cursor: pointer;" class="see-all" @click="showAllQuestions = !showAllQuestions">{{ Lang.getTranslate(showAllQuestions ? 'Collapse questions' : 'See all questions') }}</span>
+      <!-- <span class="see-all">{{ Lang.getTranslate('See all questions') }}</span> -->
     </div>
-    <span style="cursor: pointer;" class="see-all" @click="showAllQuestions = !showAllQuestions">{{ Lang.getTranslate(showAllQuestions ? 'Collapse questions' : 'See all questions') }}</span>
-    <!-- <span class="see-all">{{ Lang.getTranslate('See all questions') }}</span> -->
+    <div class="pass-div">
+      <img src="@\assets\Home\passangers-orange.png" class="pass-img"/>
+    </div>
   </div>
-  <div class="pass-div">
-    <img src="@\assets\Home\passangers-orange.png" class="pass-img"/>
-  </div>
-</div>
   
 
   <div class="support">
@@ -337,57 +337,61 @@
   
   <img src="@\assets\Home\man-with-a-suitcase-orange.png" class="man-with-sut-orange" />
  
-  <div class="contact-background">
-    <div class="contact-middle">
-      <div class="all-contact">
-        <div class="contact-column">
-          <span>{{ Lang.getTranslate('Logo') }}</span>
-          
-          <div class="social-medias">
-            <p>Follow Us</p>
-            <ul>
-              <li><a href="#"><img src="#" alt=""><img src="@\assets\fb.png" alt=""></a></li>
-              <li><a href="#"><img src="#" alt=""><img src="@\assets\insta.png" alt=""></a></li>
-              <li><a href="#"><img src="#" alt=""><img src="@\assets\tw.png" alt=""></a></li>
-              <li><a href="#"><img src="#" alt=""><img src="@\assets\tkt.png" alt=""></a></li>
-              <li><a href="#"><img src="#" alt=""><img src="@\assets\lkd.png" alt=""></a></li>
-            </ul>
+  <footer> 
+    <div class="contact-background">
+      <div class="contact-middle">
+        <div class="all-contact">
+          <div class="contact-column">
+            <span>{{ Lang.getTranslate('Logo') }}</span>
+            
+            <div class="social-medias">
+              <p>Follow Us</p>
+              <ul>
+                <li><a href="#"><img src="#" alt=""><img src="@\assets\fb.png" alt=""></a></li>
+                <li><a href="#"><img src="#" alt=""><img src="@\assets\insta.png" alt=""></a></li>
+                <li><a href="#"><img src="#" alt=""><img src="@\assets\tw.png" alt=""></a></li>
+                <li><a href="#"><img src="#" alt=""><img src="@\assets\tkt.png" alt=""></a></li>
+                <li><a href="#"><img src="#" alt=""><img src="@\assets\lkd.png" alt=""></a></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="contact-column">
-          <p>{{ Lang.getTranslate('Contact information') }}</p>
-          <ul>
-            <li><a href="#">{{ Lang.getTranslate('contact@easyisrael-mobile') }}</a></li>
-            <li><a href="#">{{ Lang.getTranslate('97255 508 55') }}</a></li>
-            <li><a href="#">{{ Lang.getTranslate('sapir center 6') }}</a></li> 
-          </ul> 
-        </div> 
-        <div class="contact-column">
-          <p>{{ Lang.getTranslate('About as') }}</p>
-          <ul>
-            <li><a href="#">{{ Lang.getTranslate('About easy israel') }}</a></li>
-            <li><a href="#">{{ Lang.getTranslate('Why Us?') }}</a></li>
-            <li><a href="#">{{ Lang.getTranslate('Contact Us') }}</a></li>
-            <li><a href="#">{{ Lang.getTranslate('Blog') }}</a></li>
-          </ul> 
-        </div>
-        <div class="contact-column">
-          <p>{{ Lang.getTranslate('Legal') }}</p>
-          <ul>
-            <li><a href="#">{{ Lang.getTranslate('Terms And Conditions') }}</a></li>
-            <li><a href="#">{{ Lang.getTranslate('Privacy Policy') }}</a></li>
-            <li><a href="#">{{ Lang.getTranslate('Coocies Policy') }}</a></li>
-            <li><a href="#">{{ Lang.getTranslate('Refund Policy') }}</a></li>
-          </ul> 
-        </div>
+          <div class="contact-column">
+            <p>{{ Lang.getTranslate('Contact information') }}</p>
+            <ul>
+              <li><a href="#">{{ Lang.getTranslate('contact@easyisrael-mobile') }}</a></li>
+              <li><a href="#">{{ Lang.getTranslate('97255 508 55') }}</a></li>
+              <li><a href="#">{{ Lang.getTranslate('sapir center 6') }}</a></li> 
+            </ul> 
+          </div> 
+          <div class="contact-column">
+            <p>{{ Lang.getTranslate('About as') }}</p>
+            <ul>
+              <li><a href="#">{{ Lang.getTranslate('About easy israel') }}</a></li>
+              <li><a href="#">{{ Lang.getTranslate('Why Us?') }}</a></li>
+              <li><a href="#">{{ Lang.getTranslate('Contact Us') }}</a></li>
+              <li><a href="#">{{ Lang.getTranslate('Blog') }}</a></li>
+            </ul> 
+          </div>
+          <div class="contact-column">
+            <p>{{ Lang.getTranslate('Legal') }}</p>
+            <ul>
+              <li><a href="#">{{ Lang.getTranslate('Terms And Conditions') }}</a></li>
+              <li><a href="#">{{ Lang.getTranslate('Privacy Policy') }}</a></li>
+              <li><a href="#">{{ Lang.getTranslate('Coocies Policy') }}</a></li>
+              <li><a href="#">{{ Lang.getTranslate('Refund Policy') }}</a></li>
+            </ul> 
+          </div>
 
+        </div>
       </div>
     </div>
-  </div>
-  <div class="pay">
-    <p>Secure electronic payment site</p>
-    <img src="@\assets\Home\payments.png" />
-  </div>
+    <div class="pay">
+      <p>Secure electronic payment site</p>
+      <img src="@\assets\Home\payments.png" />
+    </div>
+  </footer>
+
+
 </template>
 <script lang="ts">
 import 'bulma/css/bulma.css'

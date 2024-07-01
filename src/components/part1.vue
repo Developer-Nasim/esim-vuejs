@@ -111,4 +111,7 @@ font-size: 16px;
   background-color: #FFF;
 }
 
+a,button{
+  cursor: pointer;
+}
 </style>
